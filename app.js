@@ -18,6 +18,9 @@ app.use(cors())
 app.use('/users',require('./route/users.js'))
 app.use('/redaction',require('./route/articles.js'))
 app.use('/images',express.static(path.join(__dirname,'images')))
+app.get('*',(req,res)=>{
+    res.send('<h1> salut </h1>')
+})
 app.listen(3000)
 
 
