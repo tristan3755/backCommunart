@@ -28,7 +28,7 @@ router.post('/inscription',multer,(req,res)=>{
        newUser.save().then(user=>{
         if(!user){
             res.status(401).json({
-               code:401,error: "problème ajout"
+               code:500,error: "problème ajout"
             })
         }else{
             res.send(user)

@@ -14,7 +14,7 @@ const usersSchema=mongoose.Schema({
         type:String,
     },
     image:{
-        require:true,
+        /*require:true,*/
         type:String,
     },
 })
