@@ -16,7 +16,7 @@ router.post('/inscription',multer,(req,res)=>{
            mailUsers:req.body.mailUsers,
            image:`${req.protocol}://${req.get('https://mysterious-mesa-82638.herokuapp.com')}/images/${req.file.filename}`
        })
-      
+      /*
        newUser.save((err,data)=>{
       
             if(!err){
@@ -24,6 +24,17 @@ router.post('/inscription',multer,(req,res)=>{
             }else{
             res.status(500).json({code:500,message:'problème',utilisateurAjoutéEchec:err})
             }
+       })*/
+       newUser.save().then(user=>{
+        if(!user){
+            res.status(401).json({
+               code:401,error: "problème ajout"
+            })
+        }else{
+            res.send(user)
+        }
+       }).catch(err=>{
+           res.send(err).status(500)
        })
    })
 })
