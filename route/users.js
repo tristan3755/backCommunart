@@ -16,15 +16,23 @@ router.post('/inscription',multer,(req,res)=>{
            mailUsers:req.body.mailUsers,
            /*image:`${req.protocol}://${req.get('host')}/images/${req.file.filename}`*/
        })
-      /*
-       newUser.save((err,data)=>{
       
+      newUser.save((err,data)=>{
+      /*
             if(!err){
             res.status(200).json({code:200,message:'utilisateur ajouté :'+data})
             }else{
             res.status(500).json({code:500,message:'problème',utilisateurAjoutéEchec:err})
             }
-       })*/
+            */
+
+            if(!err){
+                res.send(data)
+            }else{
+                res.status(500).json({code:500,message:'problème',utilisateurAjoutéEchec:err})
+            }
+       })
+       /*
        newUser.save().then(user=>{
         if(!user){
             res.status(401).json({
@@ -35,7 +43,7 @@ router.post('/inscription',multer,(req,res)=>{
         }
        }).catch(err=>{
            res.send(err).status(500)
-       })
+       })*/
    })
 })
 router.post('/connexion',(req,res)=>{

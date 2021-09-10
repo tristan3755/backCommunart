@@ -12,7 +12,6 @@ const usersSchema=mongoose.Schema({
     password:{
         require:true,
         type:String,
-        unique:true,   
     },
     image:{
         /*require:true,*/
