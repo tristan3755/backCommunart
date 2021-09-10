@@ -14,7 +14,7 @@ router.post('/inscription',multer,(req,res)=>{
        const newUser= new usersSchema({
            password:hash,
            mailUsers:req.body.mailUsers,
-           image:`${req.protocol}://${req.get('host')}/images/${req.file.filename}`
+           /*image:`${req.protocol}://${req.get('host')}/images/${req.file.filename}`*/
        })
       /*
        newUser.save((err,data)=>{
